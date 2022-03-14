@@ -5,6 +5,7 @@ import android.graphics.Bitmap
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
@@ -53,13 +54,15 @@ class AddNewTransactionActivity : AppCompatActivity() {
     }
 
     fun addItemOnClick(view: View){
+        Log.e("addItemOnClick opened","Opened");
         val bitmap = getQrCodeBitmap(transactionID.toString());
         val intent = Intent(this,QRdisplayActivity::class.java)
         intent.putExtra("BitmapImage", bitmap);
         startActivity(intent)
     }
     fun getQrCodeBitmap(transID: String): Bitmap {
-        val size = 512 //pixels
+        Log.e("getQrCodeBitmap opened","Opened");
+        val size = 256 //pixels
         val qrCodeContent = "TRANSACTION_ID:S:$transID"
         val hints = hashMapOf<EncodeHintType, Int>().also { it[EncodeHintType.MARGIN] = 1 } // Make the QR code buffer border narrower
         val bits = QRCodeWriter().encode(qrCodeContent, BarcodeFormat.QR_CODE, size, size)
@@ -70,6 +73,7 @@ class AddNewTransactionActivity : AppCompatActivity() {
                 }
             }
         }
+        //Log.e("getQrCodeBitmap closed","closed");
     }
 
 }
