@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FarmEzz">
         <activity
+            android:name=".QRdisplayActivity"
+            android:exported="false" />
+        <activity
             android:name=".AddNewTransactionActivity"
             android:exported="false" />
         <activity
