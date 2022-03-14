@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1096455554315",
+    "firebase_url": "https://kisaanpro-c93cc-default-rtdb.firebaseio.com",
+    "project_id": "kisaanpro-c93cc",
+    "storage_bucket": "kisaanpro-c93cc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1096455554315:android:6cb3debcf27a67922a0e0e",
+        "android_client_info": {
+          "package_name": "com.example.farmezz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1096455554315-dnruu0ptuo4ffv5fiqfkikh1ohj5ro7g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWuSPVF_zldJivrKq1sovbmixl_6bTB38"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1096455554315-dnruu0ptuo4ffv5fiqfkikh1ohj5ro7g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
