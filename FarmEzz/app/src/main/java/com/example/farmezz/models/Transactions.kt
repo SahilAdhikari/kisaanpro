@@ -1,6 +1,6 @@
 package com.example.farmezz.models
 
-data class transactions(
+data class Transactions(
     val transactionID: String = "",
     val farmerID: String = "",
     val logisticID: String = "",
@@ -8,6 +8,6 @@ data class transactions(
     val productDes : String ="",
 
     val isRecievedByLogistic : Boolean = false,
-    val isRecievedByRecieved: Boolean = false,
+    val isRecievedByRetailer: Boolean = false,
 
 )

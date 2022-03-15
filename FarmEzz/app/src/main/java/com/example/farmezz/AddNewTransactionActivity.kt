@@ -10,6 +10,7 @@ import android.view.View
 import android.widget.EditText
 import android.widget.TextView
 import com.example.farmezz.daos.TransactionDao
+import com.example.farmezz.models.Transactions
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.EncodeHintType
 import com.google.zxing.qrcode.QRCodeWriter
@@ -59,17 +60,25 @@ class AddNewTransactionActivity : AppCompatActivity() {
 
     fun addItemOnClick(view: View){
         Log.e("addItemOnClick opened","Opened");
-        val bitmap = getQrCodeBitmap(transactionID.toString());
+        val bitmap = getQrCodeBitmap("transactionId");
         val intent = Intent(this,QRdisplayActivity::class.java)
         intent.putExtra("BitmapImage", bitmap);
         val dao : TransactionDao = TransactionDao()
-        dao.addTransaction(transactionID.toString());
+        dao.addTransaction(Transactions(transactionID = transactionID.toString(),
+                farmer_ID,
+                logi_ID,
+                retailer_ID,
+                "",
+            false,
+            false
+            ));
         startActivity(intent)
     }
     fun getQrCodeBitmap(transID: String): Bitmap {
         Log.e("getQrCodeBitmap opened","Opened");
         val size = 256 //pixels
-        val qrCodeContent = "TRANSACTION_ID:S:$transID"
+        //val qrCodeContent = "TRANSACTION_ID:S:$transID"
+        val qrCodeContent = "transactionId"
         val hints = hashMapOf<EncodeHintType, Int>().also { it[EncodeHintType.MARGIN] = 1 } // Make the QR code buffer border narrower
         val bits = QRCodeWriter().encode(qrCodeContent, BarcodeFormat.QR_CODE, size, size)
         return Bitmap.createBitmap(size, size, Bitmap.Config.RGB_565).also {
