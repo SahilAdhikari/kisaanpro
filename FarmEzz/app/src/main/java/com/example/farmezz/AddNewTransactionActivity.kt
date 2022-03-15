@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
+import com.example.farmezz.daos.TransactionDao
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.EncodeHintType
 import com.google.zxing.qrcode.QRCodeWriter
@@ -28,7 +29,10 @@ class AddNewTransactionActivity : AppCompatActivity() {
     lateinit var retailidView:TextView
     lateinit var product_desc:EditText
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    //dao
+     //val dao : TransactionDao ;
+
+        override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_new_transaction)
         init()
@@ -58,6 +62,8 @@ class AddNewTransactionActivity : AppCompatActivity() {
         val bitmap = getQrCodeBitmap(transactionID.toString());
         val intent = Intent(this,QRdisplayActivity::class.java)
         intent.putExtra("BitmapImage", bitmap);
+        val dao : TransactionDao = TransactionDao()
+        dao.addTransaction(transactionID.toString());
         startActivity(intent)
     }
     fun getQrCodeBitmap(transID: String): Bitmap {
