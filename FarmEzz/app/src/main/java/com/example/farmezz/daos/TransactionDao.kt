@@ -83,6 +83,17 @@ class TransactionDao {
 
     //delete
 
-    //retrieve
+    //update
+    fun update(transaction: Transactions,transactionId : String){
+        database.child("transactions").child(transactionId).setValue(transaction)
+            .addOnSuccessListener {
+                Log.e("update","success")
+            }
+            .addOnFailureListener {
+                // Write failed
+                // ...
+                Log.e("update","you are a failure")
+            }
+    }
 
 }
