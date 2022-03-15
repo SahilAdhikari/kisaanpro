@@ -5,6 +5,7 @@ plugins {
     id 'com.google.firebase.crashlytics'
     id 'com.google.firebase.firebase-perf'
 }
+apply plugin:'kotlin-kapt'
 
 android {
     compileSdk 31
@@ -36,6 +37,16 @@ android {
 
 dependencies {
 
+    // Import the BoM for the Firebase platform
+    implementation platform('com.google.firebase:firebase-bom:29.2.0')
+
+    // Declare the dependency for the Firebase Authentication library
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation 'com.google.firebase:firebase-auth-ktx'
+
+    // Also declare the dependency for the Google Play services library and specify its version
+    implementation 'com.google.android.gms:play-services-auth:20.1.0'
+
     //Zxing bar code
     implementation 'com.google.zxing:core:3.4.0'
     implementation 'androidx.core:core-ktx:1.7.0'
@@ -55,6 +66,8 @@ dependencies {
 
     implementation 'com.google.firebase:firebase-database-ktx'
 
+    //Coroutines
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
 
 
 }
