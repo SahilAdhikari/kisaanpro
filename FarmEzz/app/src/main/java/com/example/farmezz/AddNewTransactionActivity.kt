@@ -11,10 +11,15 @@ import android.widget.EditText
 import android.widget.TextView
 import com.example.farmezz.daos.TransactionDao
 import com.example.farmezz.models.Transactions
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.ktx.Firebase
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.EncodeHintType
 import com.google.zxing.qrcode.QRCodeWriter
 import org.w3c.dom.Text
+import java.io.Console
 
 class AddNewTransactionActivity : AppCompatActivity() {
     //Dummy variable
@@ -31,9 +36,13 @@ class AddNewTransactionActivity : AppCompatActivity() {
     lateinit var product_desc:EditText
 
     //dao
-     //val dao : TransactionDao ;
+    //val dao : TransactionDao ;
+    //Firebase
+    private val db = FirebaseFirestore.getInstance()
+    private val usersCollection = db.collection("users")
+    private lateinit var auth: FirebaseAuth
 
-        override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_new_transaction)
         init()
@@ -41,8 +50,10 @@ class AddNewTransactionActivity : AppCompatActivity() {
     }
     fun init(){
         transactionID =   (0..10000).random()
-        farmer_ID = "ADMIN_FARMER"
-        logi_ID = "ADMIN_LOGISTIC"
+        auth = Firebase.auth;
+        farmer_ID = auth.uid!!
+
+        logi_ID = "HxUzrxDxyQRff4lWGq1xeOOccXn2"
         retailer_ID="ADMIN_RETAILER"
 
         product_desc=findViewById(R.id.productDescriptionEditTextView);
@@ -56,19 +67,21 @@ class AddNewTransactionActivity : AppCompatActivity() {
         logiidView.setText(logi_ID)
         retailidView.setText(retailer_ID)
 
+
     }
 
     fun addItemOnClick(view: View){
         Log.e("addItemOnClick opened","Opened");
+        //Log.e("authid",auth.uid.toString())
         val bitmap = getQrCodeBitmap("transactionId");
         val intent = Intent(this,QRdisplayActivity::class.java)
         intent.putExtra("BitmapImage", bitmap);
         val dao : TransactionDao = TransactionDao()
-        dao.addTransaction(Transactions(transactionID = transactionID.toString(),
+        dao.addTransaction(Transactions(transactionID = farmer_ID,
                 farmer_ID,
                 logi_ID,
                 retailer_ID,
-                "",
+                findViewById<EditText>(R.id.productDescriptionEditTextView).text.toString(),
             false,
             false
             ));

@@ -120,7 +120,7 @@ class SignInActivity : AppCompatActivity() {
         } else {
 
             signInButton.visibility = View.VISIBLE
-//            progressBar.visibility = View.GONE
+ //           progressBar.visibility = View.GONE
         }
     }
 
