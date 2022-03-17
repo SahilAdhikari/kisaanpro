@@ -21,14 +21,26 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import com.google.firebase.firestore.DocumentSnapshot
+
+import androidx.annotation.NonNull
+
+import com.google.android.gms.tasks.OnCompleteListener
+
+
+
 
 class SignInActivity : AppCompatActivity() {
     private val RC_SIGN_IN: Int = 123
     private val TAG = "SignInActivity Tag"
     private lateinit var googleSignInClient: GoogleSignInClient
     private lateinit var auth: FirebaseAuth
-
+    private val db = FirebaseFirestore.getInstance()
+    private val usersCollection = db.collection("users")
 
 //    val firebaseAuth= FirebaseAuth.getInstance()
 
@@ -110,9 +122,24 @@ class SignInActivity : AppCompatActivity() {
 
         if(firebaseUser != null) {
 
-            val user = Users(firebaseUser.uid, firebaseUser.displayName)
-            val usersDao = UsersDao()
-            usersDao.addUser(user)
+
+
+            usersCollection.document(firebaseUser.uid).get().addOnCompleteListener(OnCompleteListener<DocumentSnapshot> { task ->
+                if (task.isSuccessful) {
+                    val document = task.result
+                    if (document.exists()) {
+
+                    } else {
+                        Log.d(TAG, "Failed with: ", task.exception)
+                        val user = Users(firebaseUser.uid, firebaseUser.displayName,ArrayList())
+                        val usersDao = UsersDao()
+                        usersDao.addUser(user)
+                    }
+                } else {
+
+                }
+            })
+            Log.e(TAG,firebaseUser.uid)
 
             val mainActivityIntent = Intent(this, StartActivity::class.java)
             startActivity(mainActivityIntent)

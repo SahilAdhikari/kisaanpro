@@ -29,9 +29,9 @@ import java.lang.Exception
 private val db = FirebaseFirestore.getInstance()
 private val usersCollection = db.collection("users")
 private lateinit var auth: FirebaseAuth
-
+private var database: DatabaseReference = Firebase.database.reference
 class QRScannerTest : AppCompatActivity() {
-    private var database: DatabaseReference = Firebase.database.reference
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_qrscanner_test)
