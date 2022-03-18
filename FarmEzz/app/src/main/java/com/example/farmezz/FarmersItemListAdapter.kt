@@ -41,6 +41,8 @@ class FarmersItemListAdapter(private val listener: FarmerItemClicked) : Recycler
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val currentItem = items[position]
         holder.titleView.text = currentItem.productDes
+
+        holder.author.text = currentItem.farmerID
     }
     fun updateItems() {
         items.clear()
@@ -55,6 +57,7 @@ class FarmersItemListAdapter(private val listener: FarmerItemClicked) : Recycler
                     for(transactions in mTransactions){
                         database.child("transactions").child(transactions).get().addOnSuccessListener {
                             try{
+                                Log.d(TAG,transactions)
                                 val trans : Transactions? = it.getValue<Transactions>()
                                 Log.e(TAG,trans.toString())
                                 items.add(trans!!)

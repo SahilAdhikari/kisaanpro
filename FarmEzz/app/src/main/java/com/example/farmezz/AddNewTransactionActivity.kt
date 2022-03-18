@@ -35,8 +35,7 @@ import androidx.annotation.NonNull
 import com.google.android.gms.tasks.OnCompleteListener
 
 import com.google.firebase.firestore.DocumentReference
-
-
+import java.util.*
 
 
 class AddNewTransactionActivity : AppCompatActivity() {
@@ -91,11 +90,13 @@ class AddNewTransactionActivity : AppCompatActivity() {
     fun addItemOnClick(view: View){
         Log.e("addItemOnClick opened","Opened");
         //Log.e("authid",auth.uid.toString())
-        val bitmap = getQrCodeBitmap("transactionId");
+        val tId = UUID.randomUUID().toString()
+
+        val bitmap = getQrCodeBitmap(tId);
         val intent = Intent(this,QRdisplayActivity::class.java)
         intent.putExtra("BitmapImage", bitmap);
         val dao : TransactionDao = TransactionDao()
-        val mTransaction = Transactions(transactionID = "transactionId",
+        val mTransaction = Transactions(transactionID = tId,
             farmer_ID,
             logi_ID,
             retailer_ID,
@@ -103,7 +104,7 @@ class AddNewTransactionActivity : AppCompatActivity() {
             false,
             false
         );
-        dao.addTransaction(mTransaction);
+        dao.addTransaction(mTransaction,tId);
         val docRef = db.collection("users").document(auth.uid!!)
         val uDao = UsersDao();
         var userInfo : Users

@@ -24,8 +24,8 @@ class TransactionDao {
 
 
     //add
-    fun addTransaction(transaction : Transactions) {
-        database.child("transactions").child("transactionId").setValue(transaction)
+    fun addTransaction(transaction : Transactions,uid: String) {
+        database.child("transactions").child(uid).setValue(transaction)
             .addOnSuccessListener {
                 Log.e("addTransaction called ","added successfully");
             }
