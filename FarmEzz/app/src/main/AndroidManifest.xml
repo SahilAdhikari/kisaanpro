@@ -12,8 +12,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FarmEzz">
         <activity
+            android:name=".ActiveOrdersActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NewOrderRecyclerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PastOrderRecyclerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RetailerActivity"
+            android:exported="false" />
+        <activity
             android:name=".SignInActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -37,7 +49,7 @@
             android:exported="false" />
         <activity
             android:name=".StartActivity"
-            android:exported="true"/>
+            android:exported="true" />
     </application>
 
 </manifest>

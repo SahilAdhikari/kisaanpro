@@ -18,6 +18,10 @@ class StartActivity : AppCompatActivity() {
         val intent = Intent(this,FarmerStartPageActivity::class.java)
         startActivity(intent)
     }
+    fun retailerPageOnClick(view: View) {
+        val intent = Intent(this,RetailerActivity::class.java)
+        startActivity(intent)
+    }
 
 
 }

@@ -38,6 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="184dp"
         android:text="Retailer PAGE"
+        android:onClick="retailerPageOnClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
