@@ -4,17 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/farmitemsbackcrop"
     tools:context=".AddNewTransactionActivity">
 
-    <TextView
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/logisticsIDEditTextView"
-        android:layout_width="151dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="276dp"
-        android:layout_marginEnd="92dp"
+        android:layout_width="456dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
         android:text="..."
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addNewTransactionHeadingTextView" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/farmerIDTextView3"
+        app:layout_constraintTop_toBottomOf="@+id/farmerIDTextView3" />
 
     <TextView
         android:id="@+id/farmerIDTextView3"
@@ -22,8 +24,9 @@
         android:layout_height="wrap_content"
 
         android:layout_marginStart="16dp"
-        android:layout_marginTop="276dp"
-        android:text="Logistics ID"
+        android:layout_marginTop="228dp"
+        android:text="CROP NAME"
+        android:textSize="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addNewTransactionHeadingTextView" />
 
@@ -32,63 +35,62 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="400dp"
-        android:text="Description"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addNewTransactionHeadingTextView" />
+        android:layout_marginTop="24dp"
+        android:text="DESCRIPTION"
+        android:textSize="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/farmerIDTextView3"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/farmerIDTextView3"
+        app:layout_constraintTop_toBottomOf="@+id/logisticsIDEditTextView" />
 
-    <TextView
+    <EditText
+        android:id="@+id/productDescriptionEditTextView"
+        android:layout_width="454dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="44dp"
+        android:ems="10"
+        android:hint="Describe Your Product"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/descriptionTextView"
+        app:layout_constraintTop_toBottomOf="@+id/logisticsIDEditTextView" />
+
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/retailIDtextView3"
-        android:layout_width="151dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="320dp"
-        android:layout_marginEnd="92dp"
+        android:layout_width="176dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="36dp"
         android:text="..."
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addNewTransactionHeadingTextView" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/productDescriptionEditTextView"
+        app:layout_constraintTop_toBottomOf="@+id/productDescriptionEditTextView" />
 
     <TextView
         android:id="@+id/retailerIDTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="320dp"
-        android:text="Retailer ID"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addNewTransactionHeadingTextView" />
-
-    <TextView
-        android:id="@+id/transactionIDHeadingTextView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="136dp"
-        android:text="Transaction ID"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addNewTransactionHeadingTextView" />
-
-    <TextView
-        android:id="@+id/transIDEditTextView"
-        android:layout_width="151dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="128dp"
-        android:layout_marginEnd="92dp"
-        android:text="..."
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addNewTransactionHeadingTextView" />
+        android:layout_marginTop="8dp"
+        android:text="PRICE(Rs per KG)"
+        android:textSize="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/descriptionTextView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/descriptionTextView"
+        app:layout_constraintTop_toBottomOf="@+id/productDescriptionEditTextView" />
 
     <TextView
         android:id="@+id/addNewTransactionHeadingTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/font1"
         android:text="ADD ITEM"
         android:textAlignment="center"
-        android:textColor="#2196F3"
-        android:textSize="25dp"
-        android:textStyle="bold"
+        android:textColor="#15317E"
+        android:textSize="40dp"
+        android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -97,42 +99,62 @@
         app:layout_constraintVertical_bias="0.039" />
 
     <TextView
+        android:id="@+id/farmerIDEditTextView"
+        android:layout_width="297dp"
+        android:layout_height="34dp"
+        android:text="..."
+        android:textSize="20dp"
+
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/farmerIDTextView"
+        app:layout_constraintEnd_toEndOf="@+id/transIDEditTextView"
+        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintStart_toStartOf="@+id/transIDEditTextView"
+        app:layout_constraintTop_toTopOf="@+id/farmerIDTextView"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
         android:id="@+id/farmerIDTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="220dp"
-        android:text="Farmer ID"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addNewTransactionHeadingTextView" />
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/font1"
+        android:text="Farmer Name"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/transactionIDHeadingTextView2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/transactionIDHeadingTextView2"
+        app:layout_constraintTop_toBottomOf="@+id/transactionIDHeadingTextView2" />
 
     <TextView
-        android:id="@+id/farmerIDEditTextView"
-        android:layout_width="151dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="220dp"
-        android:layout_marginEnd="96dp"
+        android:id="@+id/transIDEditTextView"
+        android:layout_width="287dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="40dp"
         android:text="..."
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addNewTransactionHeadingTextView" />
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/transactionIDHeadingTextView2"
+        app:layout_constraintStart_toEndOf="@+id/transactionIDHeadingTextView2"
+        app:layout_constraintTop_toTopOf="@+id/transactionIDHeadingTextView2"
+        app:layout_constraintVertical_bias="0.333" />
 
-    <EditText
-        android:id="@+id/productDescriptionEditTextView"
+    <TextView
+        android:id="@+id/transactionIDHeadingTextView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="34dp"
-        android:layout_marginEnd="47dp"
-        android:layout_marginBottom="246dp"
-        android:ems="10"
-        android:hint="Describe Your Product"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/descriptionTextView"
-        app:layout_constraintTop_toBottomOf="@+id/retailIDtextView3" />
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="80dp"
+        android:fontFamily="@font/font1"
+        android:text="PRODUCT ID"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/transIDEditTextView"
+        app:layout_constraintHorizontal_bias="0.232"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addNewTransactionHeadingTextView" />
 
     <Button
         android:id="@+id/button"
@@ -145,6 +167,76 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="480dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="16dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/farmerIDEditTextView" />
+
+    <TextView
+        android:id="@+id/displayBelowDividerView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="36dp"
+        android:text="*Please Add Your Item Details"
+        android:textColor="#15317E"
+        android:textSize="8dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.032"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/farmerIDTextView" />
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="477dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="1dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/retailIDtextView3" />
+
+    <TextView
+        android:id="@+id/displayBelowDivider2View"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="16dp"
+        android:text="*Please Add Your Item Iamge"
+        android:textColor="#15317E"
+        android:textSize="8dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.032"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/retailIDtextView3" />
+
+    <ImageView
+        android:id="@+id/cropAddImageView"
+        android:layout_width="265dp"
+        android:layout_height="164dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.465"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider2"
+        app:layout_constraintVertical_bias="0.084"
+        app:srcCompat="@drawable/cropimage"
+        android:onClick="chooseImageClicked"
+
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
